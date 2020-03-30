@@ -1,8 +1,5 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  
-
-
   class Todo extends sequelize.Sequelize.Model{}
   
   Todo.init({
@@ -11,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.BOOLEAN,
     due_date: DataTypes.DATE
   },{
-    sequelize
+    sequelize,
+    
   })
 
   Todo.associate = function(models) {

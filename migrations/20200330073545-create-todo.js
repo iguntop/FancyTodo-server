@@ -9,12 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        allowNull: false,
+        type: Sequelize.STRING 
       },
       description: {
         type: Sequelize.STRING
       },
       status: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       due_date: {

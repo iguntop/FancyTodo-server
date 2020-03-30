@@ -7,10 +7,21 @@ class Controller{
         .then(result=>{
             res.status(201).json({
                 message:"Data created Success",
-                todos:result})
+                todos:result
+            })
         })
         .catch(err=>{
-            res.status(500).json(err)
+            
+            res.status(400).json({
+                message:"Validation Errors",
+                todos:err
+            })
+            res.status(500).json({
+                message:"server Error",
+                todos:err
+            })
+
+            
         })
     }
 
@@ -22,7 +33,10 @@ class Controller{
                 todos:result})
         })
         .catch(err=>{
-            res.status(500).json(err)
+            res.status(500).json({
+                message:"server Error",
+                todos:err
+            })
         })
     }
     static readone(req,res){
@@ -34,7 +48,11 @@ class Controller{
                 todos:result})
         })
         .catch(err=>{
-            res.status(500).json(err)
+            res.status(404).json({
+                message:"Error not found",
+                todos:err
+            })
+            
         })
     }
     static update(req,res){
@@ -49,7 +67,18 @@ class Controller{
                 todos:result})
         })
         .catch(err=>{
-            res.status(500).json(err)
+            res.status(404).json({
+                message:"Error not found",
+                todos:err
+            })
+            res.status(400).json({
+                message:"Validation Errors",
+                todos:err
+            })
+            res.status(500).json({
+                message:"server Error",
+                todos:err
+            })
         })
     }
     static delete(req,res){
@@ -63,7 +92,14 @@ class Controller{
                 todos:result})
         })
         .catch(err=>{
-            res.status(500).json(err)
+            res.status(400).json({
+                message:"Validation Errors",
+                todos:err
+            })
+            res.status(500).json({
+                message:"server Error",
+                todos:err
+            })
         })
     }
 }
