@@ -1,12 +1,15 @@
 const router = require("express").Router()
 const todocontroller = require("../controllers/todo")
+const {authentication} = require("../middlewares/authentication")
+const {authorization} = require("../middlewares/authorization")
 
-// router.get('/',(req,res)=>{
-//     res.status(200).json({message:"welcome to todo apps"})
-// })
-router.post('/',todocontroller.create)
-router.get('/',todocontroller.readall)
-router.get('/:id',todocontroller.readone)
-router.put('/:id',todocontroller.update)
-router.delete('/:id',todocontroller.delete)
+
+//router.use(authentication) -- Untuk semua route jika ingin menggunakan authentikasi
+//router.use(authorization) -- Untuk semua route jika ingin menggunakan authorization setelah authentikasi berjalan
+//Atau bisa di gunakan sbb
+router.post('/',authentication,todocontroller.create)
+router.get('/',authentication,todocontroller.readall)
+router.get('/:id',authentication,authorization,todocontroller.readone)
+router.put('/:id',authentication,authorization,todocontroller.update)
+router.delete('/:id',authentication,authorization,todocontroller.delete)
 module.exports = router

@@ -2,8 +2,21 @@ const {Todo} = require("../models")
 
 class Controller{
     static create(req,res){
-        const{title,description,status,due_date} = req.body
-        Todo.create({title:title,description:description,status:status,due_date:due_date})
+        
+        
+        let payload = {
+            title:req.body.title,
+            description: req.body.description,
+            status:req.body.status,
+            due_date: req.body.due_date,
+            // req.currentUserId didapat dari middleware (Note: ngak pake body)
+            UserId:req.currentUserId
+
+        }
+        console.log(payload);
+        
+        
+        Todo.create(payload)
         .then(result=>{
             res.status(201).json({
                 message:"Data created Success",
@@ -25,8 +38,12 @@ class Controller{
         })
     }
 
-    static readall(req,res){
-        Todo.findAll()
+    static readall(req,res){        
+        Todo.findAll({
+            where:{
+                UserId:req.currentUserId
+            }
+        })
         .then(result=>{
             res.status(200).json({
                 message:"Read all Success",
@@ -34,14 +51,14 @@ class Controller{
         })
         .catch(err=>{
             res.status(500).json({
-                message:"server Error",
+                message:"server Errorrrrr",
                 todos:err
             })
         })
     }
-    static readone(req,res){
+    static readone(req,res){        
         const id = req.params.id
-        Todo.findByPk(+id)
+        Todo.findByPk(+id)        
         .then(result=>{
             res.status(200).json({
                 message:"Read by PK Success",
@@ -58,8 +75,11 @@ class Controller{
     static update(req,res){
         const{title,description,status,due_date} = req.body
         const id = req.params.id
+        
         Todo.update({title:title,description:description,status:status,due_date:due_date},{
-           where:{ id:id}
+           where:{ 
+               id:id
+            }
          })
         .then(result=>{
             res.status(200).json({
@@ -83,6 +103,7 @@ class Controller{
     }
     static delete(req,res){
         const id = req.params.id
+       
         Todo.destroy({where:{
             id:id
         }})
