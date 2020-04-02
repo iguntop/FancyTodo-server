@@ -101,6 +101,35 @@ class Controller{
             })
         })
     }
+    static updateStatus(req,res){
+        const{status} = req.body
+        const id = req.params.id
+        
+        Todo.update({status:status},{
+           where:{ 
+               id:id
+            }
+         })
+        .then(result=>{
+            res.status(200).json({
+                message:"Updated Success",
+                todos:result})
+        })
+        .catch(err=>{
+            res.status(404).json({
+                message:"Error not found",
+                todos:err
+            })
+            res.status(400).json({
+                message:"Validation Errors",
+                todos:err
+            })
+            res.status(500).json({
+                message:"server Error",
+                todos:err
+            })
+        })
+    }
     static delete(req,res){
         const id = req.params.id
        

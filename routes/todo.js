@@ -11,5 +11,6 @@ router.post('/',authentication,todocontroller.create)
 router.get('/',authentication,todocontroller.readall)
 router.get('/:id',authentication,authorization,todocontroller.readone)
 router.put('/:id',authentication,authorization,todocontroller.update)
+router.put('/:id/status',authentication,authorization,todocontroller.updateStatus)
 router.delete('/:id',authentication,authorization,todocontroller.delete)
 module.exports = router

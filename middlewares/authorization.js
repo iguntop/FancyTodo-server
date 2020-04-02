@@ -8,8 +8,10 @@ function authorization(req,res,next){
         }})
 
     .then(result=>{
-        console.log(result.dataValues.UserId,req.currentUserId);
-        if(result.dataValues.UserId == req.currentUserId){
+        console.log(result.UserId);
+        
+        // console.log(result.dataValues.UserId,req.currentUserId);
+        if(result.UserId == req.currentUserId){
             
             return next()
         }else {
