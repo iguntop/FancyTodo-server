@@ -155,6 +155,27 @@ class Controller{
 
     }
 
+    static sendPassToEmail(req,res,next){
+        let email = req.params.email
+        User.findOne({
+            where:{
+                email:req.params.email
+            }
+        })
+        .then(result=>{
+            let pass = decryptPassword(result.password)
+            console.log(result);
+            
+        })
+        .catch(err=>{
+            console.log(err);
+            
+        })
+
+
+
+        
+    }
 
 }
 module.exports = Controller

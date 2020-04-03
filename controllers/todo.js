@@ -41,7 +41,8 @@ class Controller{
     static readall(req,res){        
         Todo.findAll({
             where:{
-                UserId:req.currentUserId
+                UserId:req.currentUserId,
+                status:req.headers.status
             }
         })
         .then(result=>{
@@ -51,7 +52,7 @@ class Controller{
         })
         .catch(err=>{
             res.status(500).json({
-                message:"server Errorrrrr",
+                message:"server Error",
                 todos:err
             })
         })
