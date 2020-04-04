@@ -1,245 +1,397 @@
-#Show All User
-Returns json data about a All user.
+## **Returns json data about  all  todo in progress /done per user.**
 
-URL
+* **URL:**
 
-/todos/
+​			/todos/
 
-Method:
+* **Method:**
 
-GET
+​		`GET`
 
-URL Params
+- **URL Params**
 
-Required:
+  **Required:**
 
-none
+  `None`
 
-Data Params
+- **Data Params**
 
-None
+  **Required:**
 
-Success Response:
+  `token=[string]`
 
-Code: 200
-Content: {
-  "message": "Read all Success",
-  "todos": [
+  `status=[boolean]`
+
+- **Success Response:**
+
+  - **Code:** 200 
+    **Content:** 
+
+    ```json
     {
-      "id": 1,
-      "title": "tugas hari senin pagi",
-      "description": "Buat rest api documention",
-      "status": false,
-      "due_date": "2020-03-30T00:00:00.000Z",
-      "createdAt": "2020-03-30T15:36:42.378Z",
-      "updatedAt": "2020-03-30T15:36:42.378Z"
-    },
-    {
-      "id": 2,
-      "title": "tugas hari senin siang",
-      "description": "Buat rest api application ",
-      "status": false,
-      "due_date": "2020-03-30T00:00:00.000Z",
-      "createdAt": "2020-03-30T15:36:42.378Z",
-      "updatedAt": "2020-03-30T15:36:42.378Z"
-    },
-    {
-      "id": 3,
-      "title": "tugas hari senin malam",
-      "description": "Buat rest api together ",
-      "status": false,
-      "due_date": "2020-04-05T00:00:00.000Z",
-      "createdAt": "2020-03-30T15:36:42.378Z",
-      "updatedAt": "2020-03-30T15:36:42.378Z"
-    },
-    {
-      "id": 4,
-      "title": "tugas hari selasa malam mlam",
-      "description": "Buat rest api together ",
-      "status": false,
-      "due_date": "2020-04-05T00:00:00.000Z",
-      "createdAt": "2020-03-30T16:11:44.426Z",
-      "updatedAt": "2020-03-30T16:11:44.426Z"
+      "message": "Read all Success",
+      "todos": [
+        {
+          "id": 32,
+          "title": "Tugas Besok ini ",
+          "description": "codig lagi",
+          "status": false,
+          "due_date": "2020-04-03T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T14:11:44.883Z",
+          "updatedAt": "2020-04-03T14:11:44.883Z"
+        },
+        {
+          "id": 33,
+          "title": "Tugas Besok ini ",
+          "description": "atau",
+          "status": false,
+          "due_date": "2020-04-04T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T14:12:35.920Z",
+          "updatedAt": "2020-04-03T14:12:35.920Z"
+        },
+        {
+          "id": 34,
+          "title": "iguntop@gmail.com",
+          "description": "ertertre",
+          "status": false,
+          "due_date": "2020-04-04T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T14:16:05.145Z",
+          "updatedAt": "2020-04-03T14:16:05.145Z"
+        },
+        {
+          "id": 35,
+          "title": "males hari ini",
+          "description": "fdsd",
+          "status": false,
+          "due_date": "2020-04-04T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T15:58:28.807Z",
+          "updatedAt": "2020-04-03T15:58:28.807Z"
+        },
+        {
+          "id": 25,
+          "title": "lagi",
+          "description": "fasfsafa",
+          "status": false,
+          "due_date": "2020-01-01T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T10:11:01.407Z",
+          "updatedAt": "2020-04-03T16:54:18.402Z"
+        },
+        {
+          "id": 28,
+          "title": "test",
+          "description": "test",
+          "status": false,
+          "due_date": "2020-05-02T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T13:35:42.565Z",
+          "updatedAt": "2020-04-03T17:00:22.564Z"
+        },
+        {
+          "id": 29,
+          "title": "test",
+          "description": "Makan",
+          "status": false,
+          "due_date": "2020-04-02T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T13:36:11.471Z",
+          "updatedAt": "2020-04-04T02:25:56.284Z"
+        },
+        {
+          "id": 31,
+          "title": "males hari ini",
+          "description": "coding",
+          "status": false,
+          "due_date": "2020-04-03T00:00:00.000Z",
+          "UserId": 13,
+          "createdAt": "2020-04-03T13:59:39.064Z",
+          "updatedAt": "2020-04-04T03:20:28.401Z"
+        }
+      ]
     }
-  ]
-}
+    ```
 
-Error Response:
+    
 
-Code: 500 NOT FOUND
-Content: { error : "server Error" }
+- **Error Response:**
 
+  - **Code:** 500 Internal Server Error
+    **Content:** 
 
+    ```json
+    {
+      "type": "Internal Server errorrr",
+      "msg": {
+        "err": {
+          "name": "JsonWebTokenError",
+          "message": "invalid token"
+        }
+      }
+    }
+    ```
 
-#Show User
-Returns json data about a single user.
+    OR
 
-URL
+    ```json
+    {
+      "message": "server Error",
+      "todos": {
+        "name": "SequelizeDatabaseError",
+        "parent": {
+          "name": "error",
+          "length": 161,
+          "severity": "ERROR",
+          "code": "22P02",
+          "position": "167",
+          "file": "d:\\pginstaller_12.auto\\postgres.windows-x64\\src\\backend\\utils\\adt\\bool.c",
+          "line": "154",
+          "routine": "boolin",
+          "sql": "SELECT \"id\", \"title\", \"description\", \"status\", \"due_date\", \"UserId\", \"createdAt\", \"updatedAt\" FROM \"Todos\" AS \"Todo\" WHERE \"Todo\".\"UserId\" = 13 AND \"Todo\".\"status\" = '';"
+        },
+        "original": {
+          "name": "error",
+          "length": 161,
+          "severity": "ERROR",
+          "code": "22P02",
+          "position": "167",
+          "file": "d:\\pginstaller_12.auto\\postgres.windows-x64\\src\\backend\\utils\\adt\\bool.c",
+          "line": "154",
+          "routine": "boolin",
+          "sql": "SELECT \"id\", \"title\", \"description\", \"status\", \"due_date\", \"UserId\", \"createdAt\", \"updatedAt\" FROM \"Todos\" AS \"Todo\" WHERE \"Todo\".\"UserId\" = 13 AND \"Todo\".\"status\" = '';"
+        },
+        "sql": "SELECT \"id\", \"title\", \"description\", \"status\", \"due_date\", \"UserId\", \"createdAt\", \"updatedAt\" FROM \"Todos\" AS \"Todo\" WHERE \"Todo\".\"UserId\" = 13 AND \"Todo\".\"status\" = '';"
+      }
+    }
+    ```
 
-/todos/:id
+    
 
-Method:
+- **Sample Call:**
 
-GET
-
-URL Params
-
-Required:
-
-id=[integer]
-
-Data Params
-
-None
-
-Success Response:
-
-Code: 200
-Content: {
-  "message": "Read by PK Success",
-  "todos": {
-    "id": 4,
-    "title": "tugas hari selasa malam mlam",
-    "description": "Buat rest api together ",
-    "status": false,
-    "due_date": "2020-04-05T00:00:00.000Z",
-    "createdAt": "2020-03-30T16:11:44.426Z",
-    "updatedAt": "2020-03-30T16:11:44.426Z"
-  }
-}
-
-Error Response:
-
-Code: 500 NOT FOUND
-Content: { error : "server Error" }
-
-
-#Create User
-Create data about a single user.
-
-URL
-
-/todos/
-
-Method:
-
-POST
-
-URL Params
-
-Required:
-none
-
-Data Params
-
-"title": string
-"description": string
-"status": string
-"due_date": string
-
-Success Response:
-
-Code: 201
-Content: {
-  "message": "Data created Success",
-  "todos": {
-    "id": 10,
-    "title": "tugas hari selasa malam pagi",
-    "description": "Buat rest api together ",
-    "status": false,
-    "due_date": "2020-04-05T00:00:00.000Z",
-    "updatedAt": "2020-03-30T16:44:15.722Z",
-    "createdAt": "2020-03-30T16:44:15.722Z"
-  }
-}
-
-Error Response:
-
-Code: 400 NOT FOUND
-Content: { error : "Validation Errors" }
-OR
-Code: 500 NOT FOUND
-Content: { error : "server Error" }
+  ```
+    $.ajax({
+          method:'GET',
+          url:'/todos',
+          headers:{
+              token:localStorage.token,
+              status:false
+          }
+      })
+  ```
 
 
-#Update User
-Update a single user data.
 
-URL
+## **Returns json data about  single  todo in progress /done per user.**
 
-/todos/:id
+* **URL:**
 
-Method:
+​			/todos/:id
 
-PUT
+* **Method:**
 
-URL Params
+​		`GET`
 
-Required:
+- **URL Params**
 
-id=[integer]
+  **Required:**
 
-Data Params
+  `id:[integer]`
 
-"title": string
-"description": string
-"status": string
-"due_date": string
+- **Data Params**
 
-Success Response:
+  **Required:**
 
-Code: 200
-Content: {
-  "message": "Updated Success",
-  "todos": [
-    1
-  ]
-}
+  `token=[string]`
 
-Error Response:
+- **Success Response:**
 
-Code: 400 NOT FOUND
-Content: { error : "Validation Errors" }
-OR
-Code: 404 NOT FOUND
-Content: { error : "Error not found" }
-OR
-Code: 500 NOT FOUND
-Content: { error : "server Error" }
+  - **Code:** 200 
+    **Content:** 
+
+    ```json
+    {
+      "message": "Read by PK Success",
+      "todos": {
+        "id": 32,
+        "title": "Tugas Besok ini ",
+        "description": "codig lagi",
+        "status": false,
+        "due_date": "2020-04-03T00:00:00.000Z",
+        "UserId": 13,
+        "createdAt": "2020-04-03T14:11:44.883Z",
+        "updatedAt": "2020-04-03T14:11:44.883Z"
+      }
+    }
+    ```
+
+    
+
+- **Error Response:**
+
+  - **Code:** 401 unauthorized
+    **Content:** 
+
+    ```json
+    {
+      "message": "Unauthorized",
+      "errors": "User Not authorized"
+    }
+    ```
+
+    
+
+- **Sample Call:**
+
+  ```
+    $.ajax({
+          method:'GET',
+          url:'/todos/:id',
+          headers:{
+              token:localStorage.token
+          }
+      })
+  ```
 
 
-#Delete User
-Update a single user data.
 
-URL
+## **Update  single  todo in progress  per user.**
 
-/todos/:id
+* **URL:**
 
-Method:
+​			/todos/:id
 
-DELETE
+* **Method:**
 
-URL Params
+​		`PUT`
 
-Required:
+- **URL Params**
 
-id=[integer]
+  **Required:**
 
-Data Params
-none
+  `id:[integer]`
 
-Success Response:
+- **Data Params**
 
-Code: 200
-Content: {
-  "message": "Delete Success",
-  "todos": 1
-}
+  **Required:**
 
-Error Response:
+   ` title : [string],
+    description: [string],
+    status: "false",
+    due_date : [date] `
 
-Code: 400 NOT FOUND
-Content: { error : "Validation Errors" }
-OR
-Code: 500 NOT FOUND
-Content: { error : "server Error" }
+- **Success Response:**
+
+  - **Code:** 200 
+    **Content:** 
+
+    ```json
+    {
+      "message": "Updated Success",
+      "todos": [
+        1
+      ]
+    }
+    ```
+
+    
+
+- **Error Response:**
+
+  - **Code:** 401 unauthorized
+    **Content:** 
+
+    ```json
+    {
+      "message": "Unauthorized",
+      "errors": "User Not authorized"
+    }
+    ```
+
+    
+
+- **Sample Call:**
+
+  ```
+    $.ajax({
+          method:"PUT",
+          url:'/todos/' + id ,
+          headers:{
+              token:localStorage.token
+          },
+          data:{
+              title : title,
+              description: description,
+              status: "false",
+              due_date : due_date
+          }
+      })
+  ```
+
+
+
+## Delete  single  todo in progress  per user.**
+
+* **URL:**
+
+​			/todos/:id
+
+* **Method:**
+
+​		`DELETE`
+
+- **URL Params**
+
+  **Required:**
+
+  `id:[integer]`
+
+- **Data Params**
+
+  **Required:**
+
+   ` None `
+
+- **Success Response:**
+
+  - **Code:** 200 
+    **Content:** 
+
+    ```json
+    {
+      "message": "Delete Success",
+      "todos": 1
+    }
+    ```
+
+    
+
+- **Error Response:**
+
+  - **Code:** 401 unauthorized
+    **Content:** 
+
+    ```json
+    {
+      "message": "Unauthorized",
+      "errors": "User Not authorized"
+    }
+    ```
+
+    
+
+- **Sample Call:**
+
+  ```
+    $.ajax({
+          method:"DELETE",
+          url:'/todos/' + id,
+          headers:{
+              token:localStorage.token
+          }
+      })
+  ```
+
