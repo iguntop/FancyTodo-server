@@ -1,3 +1,4 @@
+const cool = require('cool-ascii-faces')
 require('dotenv').config()
 const express = require("express")
 const app = express()
@@ -9,6 +10,7 @@ app.use(cors())
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(routes)
+app.get('/cool',(req,res)=>res.send(cool()))
 app.listen(PORT,()=>{
     console.log('listen port'+PORT);
     
