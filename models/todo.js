@@ -12,9 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   let datenow = new Date();
 
   let startdate = datenow.getFullYear() + "-" + appendLeadingZeroes(datenow.getMonth() + 1) + "-" + appendLeadingZeroes(datenow.getDate()-1) 
- console.log(startdate);
-
-  
+ 
   Todo.init({
     title: {
       type:DataTypes.STRING,     
