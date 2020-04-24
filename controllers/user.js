@@ -145,10 +145,12 @@ class Controller{
                 }
             
             }else{
-                res.status(400).json({
-                    'type':'Bad Request',
-                    'msg':'Invalid Email/password'
-                })
+                // res.status(400).json({
+                //     'type':'Bad Request',
+                //     'msg':'Invalid Email/password'
+                // })
+                return next({
+                    name :'err'})
             }
 
         })

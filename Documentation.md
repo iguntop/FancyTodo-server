@@ -1,4 +1,4 @@
-## **Returns json data about  all  todo in progress /done per user.**
+## **View  all  todo in progress /done per user.**
 
 * **URL:**
 
@@ -14,13 +14,19 @@
 
   `None`
 
-- **Data Params**
+- **Data Headers**
 
   **Required:**
 
   `token=[string]`
 
   `status=[boolean]`
+
+- **Data Params**
+
+  **Required:**
+
+  `None`
 
 - **Success Response:**
 
@@ -185,7 +191,7 @@
 
 
 
-## **Returns json data about  single  todo in progress /done per user.**
+## **View  single  todo in progress /done per user.**
 
 * **URL:**
 
@@ -201,11 +207,21 @@
 
   `id:[integer]`
 
-- **Data Params**
+- **Data Headers**
 
   **Required:**
 
   `token=[string]`
+
+- **Data Params**
+
+  **Required:**
+
+  `none`
+
+- 
+
+  
 
 - **Success Response:**
 
@@ -274,6 +290,14 @@
 
   `id:[integer]`
 
+- **Data Headers**
+
+  **Required:**
+
+  `token=[string]`
+  
+  
+  
 - **Data Params**
 
   **Required:**
@@ -348,6 +372,24 @@
   **Required:**
 
   `id:[integer]`
+
+  
+
+- **Data Headers**
+
+  **Required:**
+
+  `token=[string]`
+
+  
+
+- **Data Headers**
+
+  **Required:**
+
+  `None`
+
+  
 
 - **Data Params**
 

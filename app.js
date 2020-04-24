@@ -6,11 +6,13 @@ const app = express()
 const cors = require("cors")
 const PORT = process.env.PORT
 const routes = require("./routes")
+const errorHandling = require("./middlewares/errorhandling")
 app.use(cors())
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(routes)
-app.get('/cool',(req,res)=>res.send(cool()))
+app.use(errorHandling)
+    
 app.listen(PORT,()=>{
     console.log('listen port'+PORT);
     
